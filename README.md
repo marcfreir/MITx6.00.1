@@ -1,173 +1,61 @@
-# L3 Problem 9
-### Week 2 / L3 Problem 9
-###### 5.0/5.0 points (graded)
-In this problem, you'll create a program that guesses a secret number!
+# MIT
+### 6.00 - Introduction to Computer Science and Programming Using Python
+###### Aug-2015
+#### Week 1
+> * Lecture 1 - Introduction to Computation
+> * Problem Set 0
+> * Lecture 2 - Core Elements of Programs
+----
+#### Week 2
+> * Lecture 3 - Simple Algorithms
+> * Lecture 4 - Functions
+> * Problem Set 1
+> * Problem Set 2
+----
+#### Week 3
+> * Lecture 5 - Recursion
+> * Lecture 6 - Objects
+> * Problem Set 3
+----
+#### Week 4
+> * Lecture 7 - Debugging
+> * Lecture 8 - Assertions and Exceptions
+> * Problem Set 4
+----
+#### Quiz
+> * Quiz
+> * Quiz Code Graders
+----
+#### Week 5
+> * Lecture 9 - Efficiency and Orders of Growth
+> * Lecture 10 - Memory and Search
+> * Problem Set 5
+----
+#### Week 6
+> * Lecture 11 - Classes
+> * Lecture 12 - Object Oriented Programming
+> * Problem Set 6
+----
+#### Week 7
+> * Lecture 13 - Trees
+> * Wrap up
+> * Problem Set 7
+----
+#### Week 8
+> * Research Videos
+----
+#### Final Exam
+> * Final Exam
+> * Final Exam Code Graders
+----
+#### Sandbox
+> * Practice - Problem Set 1
+> * Practice - Problem Set 2
+> * Practice - Problem Set 3
+> * Practice - Problem Set 4
+> * Practice - Problem Set 6
+> * Practice - Problem Set 7
 
-The program works as follows: you (the user) thinks of an integer between 0 (inclusive) and 100 (not inclusive). The computer makes guesses, and you give it input - is its guess too high or too low? Using bisection search, the computer will guess the user's secret number!
-
-Here is a transcript of an example session:
-```
-Please think of a number between 0 and 100!
-Is your secret number 50?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. l
-Is your secret number 75?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. l
-Is your secret number 87?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. h
-Is your secret number 81?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. l
-Is your secret number 84?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. h
-Is your secret number 82?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. l
-Is your secret number 83?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. c
-Game over. Your secret number was: 83
-```
-Your program should use bisection search. So think carefully what that means. What will the first guess always be? How should you calculate subsequent guesses?
-
-### Hint: Endpoints
-> Your initial endpoints should be 0 and 100. Do not optimize your subsequent endpoints by making them be the halfway point plus or minus 1. Rather, just make them be the halfway point.
-
-### Python Trick: Printing on the same line
-> Try the following in your console:
-```
-# Notice how if we have two print statements                
-print "Hi"
-print "there"
-
-# The output will have each string on a separate line:                
-Hi
-there
-                
-# Now try ading a comma after the print statement:
-print "Hi",
-print "there"
-                
-# The output will place the subsequent string on the same line:
-Hi there
-```
-
-### Test Cases to Test Your Code With. Be sure to test these on your own machine - and that you get the same output! - before running your code on this webpage!
-> Test case 1. Secret guess = 42
-```
-Please think of a number between 0 and 100!
-Is your secret number 50?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. h
-Is your secret number 25?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. l
-Is your secret number 37?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. l
-Is your secret number 43?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. h
-Is your secret number 40?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. l
-Is your secret number 41?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. l
-Is your secret number 42?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. c
-Game over. Your secret number was: 42
-```
-> Test case 2. Secret guess = 91
-```
-Please think of a number between 0 and 100!
-Is your secret number 50?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. l
-Is your secret number 75?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. l
-Is your secret number 87?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. l
-Is your secret number 93?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. h
-Is your secret number 90?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. l
-Is your secret number 91?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. y
-Sorry, I did not understand your input.
-Is your secret number 91?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. c
-Game over. Your secret number was: 91
-```
-
-Note: your program should be using raw_input to obtain the user's input! Be sure to handle the case when the user's input is not one of h, l, or c.
-
-When the user enters something invalid, you should print out a message to the user explaining you did not understand their input. Then, you should re-ask the question, and prompt again for input. For example:
-```
-Is your secret number 91?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. y
-Sorry, I did not understand your input.
-Is your secret number 91?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. c
-```
-> Code - Python version 2.7 (Updated to v3.5 in the folder L3_Problem_1)
-```python
-high = 100
-low = 0
-guess = (high + low) / 2
-
-print "Please think of a number between 0 and 100!"
-
-while True:
-    print "Is your secret number", guess, "?"
-    input_guy = raw_input("Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.")
-    
-    if input_guy == "h":
-        high = guess
-        guess = int(guess + low) / 2
-        
-    elif input_guy == "l":
-        low = guess
-        guess = int(guess + high) / 2
-        
-    elif input_guy == "c":
-        break
-        
-    else:
-        print "Sorry, I did not understand your input."
-        
-print "Game over. Your secret number was:", guess
-```
-###### Correct
-> Test results
->> Secret number is 83
-
-Output:
-```
-Please think of a number between 0 and 100!
-Is your secret number 50 ?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.l
-Is your secret number 75 ?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.l
-Is your secret number 87 ?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.h
-Is your secret number 81 ?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.l
-Is your secret number 84 ?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.h
-Is your secret number 82 ?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.l
-Is your secret number 83 ?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.c
-Game over. Your secret number was: 83
-```
->> Secret number is 42
-
-Output:
-```
-Please think of a number between 0 and 100!
-Is your secret number 50 ?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.h
-Is your secret number 25 ?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.l
-Is your secret number 37 ?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.l
-Is your secret number 43 ?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.h
-Is your secret number 40 ?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.l
-Is your secret number 41 ?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.l
-Is your secret number 42 ?
-Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.c
-Game over. Your secret number was: 42
-```
+----
+#### Student: Marc Freir
+#### Licence: MIT
